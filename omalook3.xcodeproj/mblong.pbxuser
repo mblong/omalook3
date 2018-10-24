@@ -1,0 +1,236 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeArchitecture = i386;
+		activeBuildConfigurationName = Release;
+		activeExecutable = DBA09D420CE15532008F50D0 /* qlmanage */;
+		activeTarget = 8D57630D048677EA00EA77CD /* omalook3 */;
+		addToTargets = (
+			8D57630D048677EA00EA77CD /* omalook3 */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = DB92250F0CD8D653000BB9ED /* Code sense */;
+		executables = (
+			DBA09D420CE15532008F50D0 /* qlmanage */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					332.58349609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					445,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					405,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 218504253;
+			PBXWorkspaceStateSaveDate = 218504253;
+		};
+		perUserProjectItems = {
+			DB4B5AA80D060D560006260B /* PBXTextBookmark */ = DB4B5AA80D060D560006260B /* PBXTextBookmark */;
+			DBC0E7710D061CB700E15387 /* PBXTextBookmark */ = DBC0E7710D061CB700E15387 /* PBXTextBookmark */;
+		};
+		sourceControlManager = DB92250E0CD8D653000BB9ED /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	089C167EFE841241C02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {898, 607}}";
+			sepNavSelRange = "{91, 0}";
+			sepNavVisRange = "{0, 209}";
+			sepNavWindowFrame = "{{15, 38}, {957, 735}}";
+		};
+	};
+	08FB77B6FE84183AC02AAC07 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1028, 3066}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{815, 1081}";
+			sepNavWindowFrame = "{{15, 97}, {973, 676}}";
+		};
+	};
+	2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {974, 1904}}";
+			sepNavSelRange = "{3421, 0}";
+			sepNavVisRange = "{2628, 1267}";
+			sepNavWindowFrame = "{{923, 400}, {871, 778}}";
+		};
+	};
+	61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1022, 2086}}";
+			sepNavSelRange = "{1972, 0}";
+			sepNavVisRange = "{0, 1735}";
+			sepNavWindowFrame = "{{85, 177}, {878, 778}}";
+		};
+	};
+	8D57630D048677EA00EA77CD /* omalook3 */ = {
+		activeExec = 0;
+	};
+	8D576317048677EA00EA77CD /* Info.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {914, 1596}}";
+			sepNavSelRange = "{856, 0}";
+			sepNavVisRange = "{278, 974}";
+			sepNavWindowFrame = "{{302, 416}, {973, 676}}";
+		};
+	};
+	DB4B5AA80D060D560006260B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DBCCE7A50CDC971E00839C2E /* oma_bits.c */;
+		name = "oma_bits.c: 157";
+		rLen = 0;
+		rLoc = 3862;
+		rType = 0;
+		vrLen = 1599;
+		vrLoc = 1821;
+	};
+	DB92250E0CD8D653000BB9ED /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	DB92250F0CD8D653000BB9ED /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	DBA09D420CE15532008F50D0 /* qlmanage */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+			YES,
+		);
+		argumentStrings = (
+			"-t '/volumes/in/nasa/µg processed/Earth/OH*_Emission/1.dat'",
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+			"PBXLSLaunchAction-0" = {
+				PBXLSLaunchAction = 0;
+				PBXLSLaunchStartAction = 1;
+				PBXLSLaunchStdioStyle = 2;
+				PBXLSLaunchStyle = 0;
+				class = PBXLSRunLaunchConfig;
+				commandLineArgs = (
+				);
+				displayName = "Executable Runner";
+				environment = {
+				};
+				identifier = com.apple.Xcode.launch.runConfig;
+				remoteHostInfo = "";
+				startActionInfo = "";
+			};
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		launchableReference = DBA09D430CE15532008F50D0 /* qlmanage */;
+		libgmallocEnabled = 0;
+		name = qlmanage;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			err = 1;
+			fdCreator = 5;
+			"fdCreator-OSType-get_oma_data" = 5;
+			fdType = 5;
+			"fdType-OSType-get_oma_data" = 5;
+			"finfo.fdType-OSType-get_oma_data" = 5;
+		};
+	};
+	DBA09D430CE15532008F50D0 /* qlmanage */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = "compiled.mach-o.executable";
+		name = qlmanage;
+		path = /usr/bin/qlmanage;
+		sourceTree = "<absolute>";
+	};
+	DBC0E7710D061CB700E15387 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DBCCE7A50CDC971E00839C2E /* oma_bits.c */;
+		name = "oma_bits.c: 100";
+		rLen = 0;
+		rLoc = 2031;
+		rType = 0;
+		vrLen = 1618;
+		vrLoc = 1822;
+	};
+	DBCCE7A40CDC971E00839C2E /* oma_bits.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {914, 3738}}";
+			sepNavSelRange = "{1245, 0}";
+			sepNavVisRange = "{609, 1157}";
+			sepNavWindowFrame = "{{395, 207}, {973, 676}}";
+		};
+	};
+	DBCCE7A50CDC971E00839C2E /* oma_bits.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {977, 8512}}";
+			sepNavSelRange = "{2031, 0}";
+			sepNavVisRange = "{1822, 1618}";
+			sepNavWindowFrame = "{{113, 0}, {1036, 778}}";
+		};
+	};
+}
