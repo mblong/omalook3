@@ -7,91 +7,17 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>public.data</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>public.data</string>
-			<key>CFBundleTypeRole</key>
-			<string>QLGenerator</string>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>hobj</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>QLGenerator</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>hobj</string>
-				</array>
-			</dict>
-		</dict>
-		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>QLGenerator</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>org.oma-x.oma2.data</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>QLGenerator</string>
-			<key>LSItemContentTypes</key>
-			<array>
+				<string>com.unknown.hobj</string>
 				<string>dyn.ah62d4rv4ge80k2py</string>
-			</array>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>QLGenerator</string>
-			<key>LSItemContentTypes</key>
-			<array>
+				<string>dyn.ah62d4rv4ge80u55crk</string>
 				<string>dyn.ah62d4um4ge80k2py</string>
-			</array>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>QLGenerator</string>
-			<key>LSItemContentTypes</key>
-			<array>
 				<string>dyn.ah62d4rv4ge8083dyqe</string>
-			</array>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>QLGenerator</string>
-			<key>LSItemContentTypes</key>
-			<array>
 				<string>dyn.ah62d4rv4gk8y8ycwk2</string>
-			</array>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>QLGenerator</string>
-			<key>LSItemContentTypes</key>
-			<array>
 				<string>dyn.ah62d4rv4gk8y8vcyke</string>
 			</array>
 			<key>LSTypeIsPackage</key>
@@ -105,7 +31,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>org.oma-x.oma2.omaquicklookgenerator</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -114,8 +40,6 @@
 	<string>1</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>CFPlugInDynamicRegisterFunction</key>
-	<string></string>
 	<key>CFPlugInDynamicRegistration</key>
 	<string>NO</string>
 	<key>CFPlugInFactories</key>
