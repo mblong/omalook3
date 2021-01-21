@@ -151,6 +151,7 @@ OSStatus get_oma_data( CFURLRef url, TWOBYTE **head, TWOBYTE **trail, DATAWORD *
 	int nbyte,nr;
 	int fd;
 	int is_big_endian,swap_bytes;
+    int oma2DataIsInteger = 0;
 	
 	UInt8 txt[512];
     
@@ -228,6 +229,12 @@ OSStatus get_oma_data( CFURLRef url, TWOBYTE **head, TWOBYTE **trail, DATAWORD *
             
             swap_bytes = 0;
             
+            // in case the data was saved as integers rather than float
+            if( image.specs[SAVE_FORMAT] == UNSIGNED16 ||
+                image.specs[SAVE_FORMAT] == SIGNED16 ||
+                image.specs[SAVE_FORMAT] == UNSIGNED8 ||
+                image.specs[SAVE_FORMAT] == SIGNED8) oma2DataIsInteger = image.specs[SAVE_FORMAT];
+            
         } else {
             
             read(fd,comment,COMLEN);
@@ -261,6 +268,96 @@ OSStatus get_oma_data( CFURLRef url, TWOBYTE **head, TWOBYTE **trail, DATAWORD *
             free(trailer);
 			return -1;
 		}
+        
+        // new code for oma2 data saved as integers
+        size_t npts=header[NCHAN]*header[NTRAK];
+        int error=0;
+        if(oma2DataIsInteger){
+            switch (oma2DataIsInteger) {
+                case UNSIGNED16:
+                {
+                    unsigned short* shortData = (unsigned short*) malloc(npts*sizeof(short));
+                    nr = read(fd,shortData,sizeof(unsigned short)*npts);
+                    if (nr != sizeof(unsigned short)*npts) {
+                        free(shortData);
+                        error= -1;
+                    } else {
+                        DATAWORD* mydatpt=datpt;
+                        unsigned short* newdatpt=shortData;
+                        while ( mydatpt < datpt+npts ) {
+                            *mydatpt++ = *newdatpt++;
+                        }
+                        free(shortData);
+                    }
+                    break;
+                }
+                case SIGNED16:
+                {
+                    short* shortData = (short*) malloc(npts*sizeof(short));
+                    nr = read(fd,shortData,sizeof(short)*npts);
+                    if (nr != sizeof(short)*npts) {
+                        free(shortData);
+                        error= -1;
+                    } else {
+                        DATAWORD* mydatpt=datpt;
+                        short* newdatpt=shortData;
+                        while ( mydatpt < datpt+npts ) {
+                            *mydatpt++ = *newdatpt++;
+                        }
+                        free(shortData);
+                    }
+                    break;
+                }
+                case UNSIGNED8:
+                {
+                   unsigned char* shortData = (unsigned char*) malloc(npts*sizeof(unsigned char));
+                    nr = read(fd,shortData,sizeof(unsigned char)*npts);
+                    if (nr != sizeof(unsigned char)*npts) {
+                        free(shortData);
+                        error= -1;
+                    } else {
+                        DATAWORD* mydatpt=datpt;
+                        unsigned char* newdatpt=shortData;
+                        while ( mydatpt < datpt+npts ) {
+                            *mydatpt++ = *newdatpt++;
+                        }
+                        free(shortData);
+                    }
+                    break;
+                }
+                case SIGNED8:
+                {
+                    char* shortData = (char*) malloc(npts*sizeof( char));
+                     nr = read(fd,shortData,sizeof(char)*npts);
+                     if (nr != sizeof(char)*npts) {
+                         free(shortData);
+                         error= -1;
+                     } else {
+                         DATAWORD* mydatpt=datpt;
+                         char* newdatpt=shortData;
+                         while ( mydatpt < datpt+npts ) {
+                             *mydatpt++ = *newdatpt++;
+                         }
+                         free(shortData);
+                     }
+                     break;
+                }
+            }
+            if(error){
+                free(header);
+                free(trailer);
+                free(datpt);
+                return error;
+            } else {
+                *head = header;
+                *data = datpt;
+                *trail = trailer;
+                return noErr;
+            }
+        }
+
+        
+        // end of oma2 data saved as integers case
         
         int dataSize = DATABYTES;
         FILE* f=fopen((char*)txt ,"r");
