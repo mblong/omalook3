@@ -27,7 +27,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 	DATAWORD *datpt;
 	TWOBYTE *header,*trailer;
 	
-	int pixsize = 1,maxdimension,width,height,data_type;
+	int pixsize = -4,maxdimension,width,height,data_type;
 	
 	CGImageRef image=0;
 	
@@ -61,16 +61,25 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
             if(trailer != 0) free(trailer);
 			return -1;
 		}
+        if( header[NCHAN] > header[NTRAK] )
+            maxdimension =  header[NCHAN];
+        else
+            maxdimension =  header[NTRAK];
+        if(maxdimension > 3840)
+            pixsize=-4;
+        else if(maxdimension > 1920)
+            pixsize=-2;
+        else pixsize=1;
+        int nth = abs(pixsize);
         
-		width = header[NCHAN];
+		width = header[NCHAN]/nth;
         
         if(trailer[IS_COLOR]){
-            height = header[NTRAK]/3;
+            height = header[NTRAK]/3/nth;
             rgbdata = Get_color_rgb_from_image_buffer(header, trailer, datpt, pixsize);
             
         } else {
-            
-            height = header[NTRAK];
+            height = header[NTRAK]/nth;
             rgbdata = Get_rgb_from_image_buffer(header, trailer, datpt, pixsize);
         }
 		

@@ -49,9 +49,9 @@ int get_byte_swap_value(short id,int is_big_endian)
 		return 0;
 }
 
- void swap_bytes_routine(char* co, int num,int nb)
+ void swap_bytes_routine(char* co, long num,int nb)
  {
-	int nr;
+	long nr;
 	char ch;
 	if(nb == 2){
 		for(nr=0; nr < num; nr += nb) {
@@ -148,7 +148,7 @@ OSStatus get_oma_data( CFURLRef url, TWOBYTE **head, TWOBYTE **trail, DATAWORD *
 	DATAWORD *datpt;
 	TWOBYTE	*header,*trailer;   //trailer[TRAILEN/2];
 	char	comment[COMLEN] = {0};
-	int nbyte,nr;
+	long nbyte,nr;
 	int fd;
 	int is_big_endian,swap_bytes;
     int oma2DataIsInteger = 0;
@@ -460,17 +460,35 @@ Ptr Get_rgb_from_image_buffer( TWOBYTE *header, TWOBYTE *trailer, DATAWORD *datp
 			mydatpt++;
 		}
 	}
-	crange = cmax - cmin;
-	ncm1 = 253;
+    
+    if( pixsiz > 0 ){
+        nth = 1;
+        pix_scale = 1.0;
+    } else {
+        nth = abs(pixsiz);
+        pix_scale=1.0/nth;
+    }
+
+    // histogram
+#define HISTOGRAM_SIZE 512
+    int histogram[HISTOGRAM_SIZE];
+    float binsize = (cmax-cmin)/(HISTOGRAM_SIZE-1.0);
+    int npts=header[NCHAN]/nth*header[NTRAK]/nth,histogramIndex;
+    for(i=0; i<HISTOGRAM_SIZE; i++) histogram[i]=0;
+    for(mydatpt=datpt; mydatpt < datpt+npts*nth*nth; mydatpt+=nth){
+        histogramIndex = (*mydatpt-cmin)/binsize;
+        histogram[histogramIndex]++;
+    }
+    float sum;
+    for(i=HISTOGRAM_SIZE-1,sum=0.; i>0; i--){
+        sum += histogram[i];
+        if(sum/npts >= .005) break;
+    }
+    //printf("Value that excludes the upper %.1f percent of pixels is %g\n", upper,i*binsize+iBuffer.min());
+    if(i==0)i=1;
+	crange = i*binsize;
+	ncm1 = 254;
 	cm = cmin;
-	
-	if( pixsiz > 0 ){
-		nth = 1;
-		pix_scale = 1.0;
-	} else {
-		nth = abs(pixsiz);
-		pix_scale=1.0/nth;
-	}
 	
 	ptr = calloc(header[NCHAN]/nth*header[NTRAK]/nth,4);
 	
