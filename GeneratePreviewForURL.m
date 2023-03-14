@@ -2,6 +2,7 @@
 #include <CoreServices/CoreServices.h>
 #include <QuickLook/QuickLook.h>
 #include "oma_bits.h"
+#import <Cocoa/Cocoa.h>
 
 OSStatus get_oma_data( CFURLRef,TWOBYTE **ptrh,TWOBYTE **ptrt, DATAWORD **ptrd);
 Ptr Get_rgb_from_image_buffer( TWOBYTE *header, TWOBYTE *trailer, DATAWORD *datpt, int pixsiz);
@@ -19,6 +20,59 @@ int plotpivdata( CGContextRef cgContext, CGRect dstRect, float pen_width, int no
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
+    
+    int data_type = get_oma_data_type( url);
+    
+    if ( data_type == MACRO) {
+        NSError *theErr = nil;
+        NSURL *myURL = (__bridge NSURL *)url;
+        
+        // Load document data using NSStrings house methods
+        // For huge files, maybe guess file encoding using `file --brief --mime` and use NSFileHandle? Not for now...
+        NSStringEncoding stringEncoding;
+        NSString *fileString = [NSString stringWithContentsOfURL:myURL usedEncoding:&stringEncoding error:&theErr];
+        
+        // We could not open the file, probably unknown encoding; try ISO-8859-1
+        if (!fileString) {
+            stringEncoding = NSISOLatin1StringEncoding;
+            fileString = [NSString stringWithContentsOfURL:myURL encoding:stringEncoding error:&theErr];
+            
+            // Still no success, give up
+            if (!fileString) {
+                if (nil != theErr) {
+                    NSLog(@"Error opening the file: %@", theErr);
+                }
+                
+                return noErr;
+            }
+        }
+        NSArray *lineArray = [fileString componentsSeparatedByString:@"\n"];
+        NSMutableString *html = [[NSMutableString alloc] initWithString:@"<!DOCTYPE html>\n"];
+        [html appendString:@"<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\"><head>\n"];
+        //[html appendFormat:@"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n"];
+        
+        //[html appendString:@"<style>\n"];
+        [html appendString:@"<body>\n"];
+        for(int i=0; i < [lineArray count]; i++){
+            [html appendString:lineArray[i]];
+            [html appendString:@"<br>\n"];
+        }
+        
+        [html appendString:@"</body>\n"];
+        [html appendString:@"</html>"];
+        
+        // feed the HTML
+        CFDictionaryRef properties = (__bridge CFDictionaryRef)@{};
+        QLPreviewRequestSetDataRepresentation(preview,
+                                              (__bridge CFDataRef)[html dataUsingEncoding:stringEncoding],
+                                              kUTTypeHTML,
+                                              properties
+                                              );
+
+        
+        return noErr;
+    }
+
 	CGContextRef cgContext;
 	CGSize canvasSize = {400.,400.};
 	CGRect dstRect = {0.,0.,399., 399.};
@@ -27,7 +81,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 	DATAWORD *datpt;
 	TWOBYTE *header,*trailer;
 	
-	int pixsize = -4,maxdimension,width,height,data_type;
+	int pixsize = -4,maxdimension,width,height;
 	
 	CGImageRef image=0;
 	
@@ -40,7 +94,7 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
     trailer = 0;
 	rgbdata = 0;
 
-	data_type = get_oma_data_type( url);
+	//data_type = get_oma_data_type( url);
 	
     if( data_type == IMAGEDATA || data_type == UNKNOWN || data_type == HOBJ){
         
@@ -151,7 +205,10 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
 			return noErr;
 
 		}
-	}
+    } else if ( data_type == MACRO) {
+        
+    }
+
 	return -1;
 
 }

@@ -7,12 +7,17 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>o2m</string>
+			</array>
 			<key>CFBundleTypeRole</key>
 			<string>QLGenerator</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>org.oma-x.oma2.data</string>
 				<string>com.unknown.hobj</string>
+				<string>org.oma-x.oma2.macro</string>
 				<string>dyn.ah62d4rv4ge80k2py</string>
 				<string>dyn.ah62d4rv4ge80u55crk</string>
 				<string>dyn.ah62d4um4ge80k2py</string>

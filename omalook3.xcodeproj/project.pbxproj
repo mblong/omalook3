@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.c */; };
+		2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */; };
 		61E3BCFB0870B4F2002186A0 /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.c */; };
 		8D576312048677EA00EA77CD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
@@ -17,7 +17,7 @@
 		DB967EEB0CDCF8340066EF98 /* OMA palette.pa1 in Resources */ = {isa = PBXBuildFile; fileRef = DB967EEA0CDCF8340066EF98 /* OMA palette.pa1 */; };
 		DBB07C3420164C310092B3CD /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB07C3320164C310092B3CD /* QuickLook.framework */; };
 		DBCCE7A60CDC971E00839C2E /* oma_bits.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCCE7A40CDC971E00839C2E /* oma_bits.h */; };
-		DBCCE7A70CDC971E00839C2E /* oma_bits.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCCE7A50CDC971E00839C2E /* oma_bits.c */; };
+		DBCCE7A70CDC971E00839C2E /* oma_bits.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCCE7A50CDC971E00839C2E /* oma_bits.m */; };
 		F28CFBFD0A3EC0AF000ABFF5 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +25,7 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08FB77B6FE84183AC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
-		2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
+		2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
 		61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
 		8D576316048677EA00EA77CD /* omalook3.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = omalook3.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -34,7 +34,7 @@
 		DB967EEA0CDCF8340066EF98 /* OMA palette.pa1 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OMA palette.pa1"; sourceTree = "<group>"; };
 		DBB07C3320164C310092B3CD /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = ../../../System/Library/Frameworks/QuickLook.framework; sourceTree = "<group>"; };
 		DBCCE7A40CDC971E00839C2E /* oma_bits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oma_bits.h; sourceTree = "<group>"; };
-		DBCCE7A50CDC971E00839C2E /* oma_bits.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = oma_bits.c; sourceTree = "<group>"; };
+		DBCCE7A50CDC971E00839C2E /* oma_bits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = oma_bits.m; sourceTree = "<group>"; };
 		F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -90,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.c */,
-				2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.c */,
-				DBCCE7A50CDC971E00839C2E /* oma_bits.c */,
+				2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */,
+				DBCCE7A50CDC971E00839C2E /* oma_bits.m */,
 				DBCCE7A40CDC971E00839C2E /* oma_bits.h */,
 				08FB77B6FE84183AC02AAC07 /* main.c */,
 			);
@@ -146,7 +146,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					8D57630D048677EA00EA77CD = {
 						ProvisioningStyle = Automatic;
@@ -199,9 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D576312048677EA00EA77CD /* main.c in Sources */,
-				2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.c in Sources */,
+				2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */,
 				61E3BCFB0870B4F2002186A0 /* GenerateThumbnailForURL.c in Sources */,
-				DBCCE7A70CDC971E00839C2E /* oma_bits.c in Sources */,
+				DBCCE7A70CDC971E00839C2E /* oma_bits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +227,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -234,7 +235,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.oma-x.oma2.omaquicklookgenerator";
 				PRODUCT_NAME = omalook3;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -252,13 +253,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.oma-x.oma2.omaquicklookgenerator";
 				PRODUCT_NAME = omalook3;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -284,11 +286,13 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -319,11 +323,13 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

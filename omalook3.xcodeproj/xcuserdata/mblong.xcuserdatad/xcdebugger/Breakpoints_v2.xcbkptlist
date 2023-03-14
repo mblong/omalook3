@@ -7,40 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "67BE5D5C-65D8-4B6B-8492-7D835E1301DF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "oma_bits.c"
-            timestampString = "538351301.823676"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "get_oma_data_type(url)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "25698F2F-149D-4133-AA43-D4E593F618C1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "oma_bits.c"
-            timestampString = "538351301.824155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "get_oma_data_type(url)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "126B6380-FF80-4DC1-89B1-7BEA28FB846D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -49,8 +15,8 @@
             timestampString = "538354562.7269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "GeneratePreviewForURL(thisInterface, preview, url, contentTypeUTI, options)"
             landmarkType = "9">
          </BreakpointContent>
@@ -66,8 +32,8 @@
             timestampString = "538354562.727339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "GeneratePreviewForURL(thisInterface, preview, url, contentTypeUTI, options)"
             landmarkType = "9">
          </BreakpointContent>

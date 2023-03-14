@@ -43,6 +43,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define UNKNOWN 3
 #define OMAPREFS 4
 #define HOBJ 5
+#define MACRO 6
 #define ERROR -1
 
 #define EOL     0        	/* this marks the end of the command list */

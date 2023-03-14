@@ -90,58 +90,28 @@ int get_byte_swap_value(short id,int is_big_endian)
 	
 }
 
+
 int get_oma_data_type( CFURLRef url)
 {
-	// turn the url into a file path string
-	
-	char txt[256];
-	FILE *fp;
-	int k,n,m;
-		
-	// turn path into fsref
-	FSRef theFSRef;
-	FSCatalogInfo myInfo;
-	FInfo finfo,*finfo_ptr;
-
-	CFURLGetFSRef(url,&theFSRef);
-	FSRefMakePath(&theFSRef,(unsigned char*)txt,255); // this is the path
-	FSGetCatalogInfo (&theFSRef,kFSCatInfoFinderInfo,&myInfo,NULL,NULL,NULL);
-	finfo_ptr = (FInfo*) &myInfo.finderInfo;
-	finfo = *finfo_ptr;
-	if( finfo.fdType == 'OPRF' ) return OMAPREFS;	// don't show prefs -- there's no data there
-	if( finfo.fdType == 'TEXT' ) {	// this could be PIV data 
-		fp = fopen(txt,"r");
-		if( fp != NULL) {	
-			fscanf( fp,"%d\t%d\t%d\t",&k,&m,&n);
-			// read the text label to be sure this is a valid piv file 
-			// don't try and compare the \n, since that may be different between os9 and osx
-			fread(txt,strlen("x locations, y locations, peaks/location"),1,fp);
-			if( memcmp(txt,"x locations, y locations, peaks/location",
-						strlen("x locations, y locations, peaks/location")) != 0) {
-				// not a valid PIV file
-				fclose(fp);
-				return(UNKNOWNTEXT);
-			} else {
-				fclose(fp);
-				return(PIVDATA);
-			}
-		} else {
-			return ERROR;
-		}
-	} 
-
-	if( finfo.fdType == 'ODTA' ) return IMAGEDATA;
-	if( strncmp(&txt[strlen(txt)-4],".o2d",4) == 0 ||
+    // turn the url into a file path string
+    
+    char txt[512];
+     
+    CFURLGetFileSystemRepresentation(url, true, (UInt8*)txt, 512);
+    if( strncmp(&txt[strlen(txt)-4],".o2d",4) == 0 ||
         strncmp(&txt[strlen(txt)-4],".O2D",4) == 0)return IMAGEDATA;
     if( strncmp(&txt[strlen(txt)-5],".hobj",5) == 0 ||
        strncmp(&txt[strlen(txt)-5],".HOBJ",5) == 0)return HOBJ;
+    if( strncmp(&txt[strlen(txt)-4],".o2m",4) == 0 ||
+       strncmp(&txt[strlen(txt)-4],".O2M",4) == 0)return MACRO;
 
-	// other checks ??
-	
-	// Going forward, need to have oma set a UTI according to data type so that appropriate previews can be generated
-	
-	return UNKNOWN;
+    // other checks ??
+    
+    // Going forward, need to have oma set a UTI according to data type so that appropriate previews can be generated
+    
+    return UNKNOWN;
 }
+
 
 OSStatus get_oma_data( CFURLRef url, TWOBYTE **head, TWOBYTE **trail, DATAWORD **data)
 {
